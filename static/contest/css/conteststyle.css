@@ -1,0 +1,42 @@
+.test
+{
+    width: 50%;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color:#4682b4;
+    margin-left: 40%;
+}
+button
+{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight:bold;
+    border: 2px solid #4682b4;
+    background:transparent;
+    color: #fff;
+    cursor:pointer;
+    position: relative;
+    overflow: hidden;
+}
+span{
+    background:#4682b4;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover span{
+    width: 100%;
+}
+button:hover span
+{
+    border: none;
+}

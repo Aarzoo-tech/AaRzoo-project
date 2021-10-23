@@ -1,0 +1,44 @@
+body
+{
+    background-image: url("Achievements.png");
+}
+table,th,td
+{
+    border: 5px solid palevioletred;
+    border-collapse: collapse;
+    background:white;
+}
+table.center
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+table
+{
+    width: 100%;
+}
+th{
+    height: 70px;
+}
+td{
+    height: 70px;
+    text-align: center;
+}
+a{
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover
+{
+    text-decoration: underline;
+    color:palevioletred;
+}
+.para
+{
+    text-align: center;
+    color:palevioletred;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}

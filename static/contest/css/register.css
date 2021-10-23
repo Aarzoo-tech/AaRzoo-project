@@ -1,0 +1,29 @@
+
+.container
+{
+    margin: auto;
+    width: 25%;
+    background-color:olivedrab;
+    margin-top: 50px;
+    padding: 10px;
+    text-align: center;
+}
+.inner{
+    padding: 20px;
+}
+.data
+{
+    width: 90%;
+    padding:10px;
+
+}
+.btn
+{
+    width:90%;
+    padding:10px;
+    background-color:saddlebrown;
+}
+.btn:hover
+{
+    background-color:olivedrab;
+}
