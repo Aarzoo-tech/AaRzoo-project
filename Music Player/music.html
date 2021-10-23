@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main_div">
+        <div class="music_container">
+            <h2 id="title">Inspiration</h2>
+            <h3 id="artist">Rahat</h3>
+            <div class="img_container">
+                <img src="images/Inspiration.jpg" alt="">
+            </div>
+            <audio src="musics/Inspiration.mp3"></audio>
+            <!--Controls-->
+            <div class="music_controls">
+                <i class="fas fa-backward" id="prev" title="Previous"></i>
+                <i class="fas fa-play main_button" id="play" title="Play"></i>
+                <i class="fas fa-forward" id="next" title="Next"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        const music=document.querySelector("audio");
+        const image=document.querySelector("img")
+        const play=document.getElementById("play");
+        const title=document.getElementById("title");
+        const artist=document.getElementById("artist");
+        const previous=document.getElementById("prev");
+        const next=document.getElementById("next");
+        const songs =[
+            {
+                name:"Love",
+                title:"Love Song",
+                artist:"Arijit SIngh",
+            },
+            {
+                name:"Besound",
+                title:"Besound",
+                artist:"Neha",
+            },
+            {
+                name:"Pianomoment",
+                title:"Pianomoment",
+                artist:"Sunidhi",
+            },
+            {
+                name:"Inspiration",
+                title:"Inspiration",
+                artist:"Rahat",
+            },
+            {
+                name:"Sunny",
+                title:"Sunny",
+                artist:"Mohit",
+            },
+            {
+                name:"Motivation",
+                title:"Motivation",
+                artist:"A R Rahman",
+            },
+        ];
+        let isPlaying=false;
+        const playMusic = () => {
+            isPlaying=true;
+            music.play();
+            play.classList.replace("fa-play","fa-pause");
+            image.classList.add("animation")
+        };
+        const pauseMusic = () => {
+            isPlaying=false;
+            music.pause();
+            play.classList.replace("fa-pause","fa-play");
+            image.classList.remove("animation")
+        };
+        play.addEventListener("click", () => {
+            isPlaying ? pauseMusic() : playMusic();           
+         });
+        const loadSong= (songs) => {
+            title.textContent=songs.title;
+            artist.textContent=songs.artist;
+            music.src= "musics/" + songs.name + ".mp3";
+            image.src= "images/" + songs.name + ".jpg";
+        };
+        songIndex = 0;
+        const nextSong = () => {
+            songIndex=(songIndex+1)%songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        };
+        const prevSong = () => {
+            songIndex=(songIndex-1+songs.length)%songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        };
+        next.addEventListener("click",nextSong);
+        previous.addEventListener("click",prevSong);
+    </script>
+</body>
+</html>
