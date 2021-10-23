@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>social_contest</title>
+    <link rel="stylesheet" href="{% static 'contest/css/conteststyle.css' %}" type="text/css">
+</head>
+<body style="background-image:url('{% static 'contest/images/Achievements.png' %}');">
+    <div class="test">
+        <form action="http://localhost:8000/contest/contest-result" method="POST">
+            {% for que in q %}
+            <ul>
+                <h3><li>{{que.Que}}</li></h3>
+                    <ol type="a">
+                        <input type="hidden" name="anss" value="{{que.ans}}">
+                        <li><input type="radio" name="answer" value="{{que.opt1}}">{{que.opt1}}</li>
+                        <li><input type="radio" name="answer" value="{{que.opt2}}">{{que.opt2}}</li>
+                        <li><input type="radio" name="answer" value="{{que.opt3}}">{{que.opt3}}</li>
+                        <li><input type="radio" name="answer" value="{{que.opt4}}">{{que.opt4}}</li>
+                    </ol>
+            </ul>
+            {% endfor %}
+            <button type="button"><span></span>Submit</button>
+        </form>
+    </div>
+</body>
+</html>

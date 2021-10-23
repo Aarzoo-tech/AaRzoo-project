@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'contest/css/register.css' %}" type="text/css">
+    <script src="register.js"></script>
+</head>
+<body style="background-image:url('{% static 'contest/images/pexels-pixabay-268533.jpg' %}');">
+    <div class="container">
+        <form action="http://localhost:8000/contest/save-user" method="POST" onsubmit="return validation()">
+            <h1 class="reg">Register</h1>
+            <p>Please create your account.It's free and secure.</p>
+            <p>{{s}}</p>
+            <div class="inner">
+                <input class="data" type="text" placeholder="User" name="username" onkeydown="remove_error_msg(this)"><span id="s1"></span>
+            </div>
+            <div class="inner">
+                <input class="data" type="email" placeholder="Email" name="email" onkeydown="remove_error_msg(this)"><span id="s2"></span> 
+            </div>
+            <div class="inner">
+                <input class="data" type="password" placeholder="Password" name="password" onkeydown="remove_error_msg(this)"><span id="s3"></span>    
+            </div>
+            <div class="inner">
+                <input class="data" type="password" placeholder="Confirm Password" name="cnfpswd" onkeydown="remove_error_msg(this)"><span id="s4"></span>
+            </div>
+            <div class="inner">
+                <input class="btn" type="submit" value="Register Now">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
